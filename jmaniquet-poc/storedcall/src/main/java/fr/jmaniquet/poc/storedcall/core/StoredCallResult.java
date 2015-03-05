@@ -2,13 +2,32 @@ package fr.jmaniquet.poc.storedcall.core;
 
 import java.util.Map;
 
+import org.joda.time.DateTime;
+
 public class StoredCallResult {
 
 	private Map<String, Object> resultMap;
 
-	public StoredCallResult(Map<String, Object> resultMap) {
+	StoredCallResult(Map<String, Object> resultMap) {
 		super();
 		this.resultMap = resultMap;
+	}
+	
+	public Long getLong(String key) {
+		return extractFromMap(key);
+	}
+	
+	public String getString(String key) {
+		return extractFromMap(key);
+	}
+	
+	public DateTime getDateTime(String key) {
+		return extractFromMap(key);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private <T> T extractFromMap(String key) {
+		return (T) this.resultMap.get(key);
 	}
 	
 	public Object getResultProperty(String key) {

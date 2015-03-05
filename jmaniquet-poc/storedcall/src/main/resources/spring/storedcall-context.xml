@@ -26,8 +26,12 @@
 	</bean>
 	
 	<bean id="bigIntAslongSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInParameter" abstract="true" />
+	<bean id="bigIntAslongSqlInOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInOutParameter" abstract="true" />
+	
+	<bean id="varcharAsStringSqlOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.varchar.VarcharAsLongSqlOutParameter" abstract="true" />
 	
 	<bean id="timestampAsDateTimeSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlInParameter" abstract="true" />
+	<bean id="timestampAsDateTimeSqlOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlOutParameter" abstract="true" />
 	
 	<bean id="inserUserOverload1" parent="abstractStoredCall">
 		<property name="procedureName" value="insertUser" />
@@ -48,6 +52,26 @@
 					<constructor-arg value="ID" />
 				</bean>
 				<bean parent="timestampAsDateTimeSqlInParameter">
+					<constructor-arg value="BIRTH_DATE" />
+				</bean>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="findUserById" parent="abstractStoredCall">
+		<property name="procedureName" value="findUserById" />
+		<property name="parameters">
+			<array>
+				<bean parent="bigIntAslongSqlInOutParameter">
+					<constructor-arg value="ID_P" />
+				</bean>
+				<bean parent="varcharAsStringSqlOutParameter">
+					<constructor-arg value="NAME" />
+				</bean>
+				<bean parent="varcharAsStringSqlOutParameter">
+					<constructor-arg value="GIVEN_NAME" />
+				</bean>
+				<bean parent="timestampAsDateTimeSqlOutParameter">
 					<constructor-arg value="BIRTH_DATE" />
 				</bean>
 			</array>
