@@ -1,5 +1,6 @@
 package fr.jmaniquet.poc.storedcall.core;
 
+import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
@@ -17,11 +18,15 @@ public class StoredCallResult {
 		return extractFromMap(key);
 	}
 	
-	public String getString(String key) {
+	public DateTime getDateTime(String key) {
 		return extractFromMap(key);
 	}
 	
-	public DateTime getDateTime(String key) {
+	public <T> List<T> getList(String key) {
+		return extractFromMap(key);
+	}
+	
+	public String getString(String key) {
 		return extractFromMap(key);
 	}
 	

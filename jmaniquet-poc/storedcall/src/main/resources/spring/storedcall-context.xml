@@ -33,6 +33,8 @@
 	<bean id="timestampAsDateTimeSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlInParameter" abstract="true" />
 	<bean id="timestampAsDateTimeSqlOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlOutParameter" abstract="true" />
 	
+	<bean id="cursorParameter" class="fr.jmaniquet.poc.storedcall.core.params.cursor.CursorParameter" abstract="true" />
+	
 	<bean id="inserUserOverload1" parent="abstractStoredCall">
 		<property name="procedureName" value="insertUser" />
 		<property name="parameters">
@@ -75,6 +77,45 @@
 					<constructor-arg value="BIRTH_DATE" />
 				</bean>
 			</array>
+		</property>
+	</bean>
+	
+	<bean id="findAllUsers" parent="abstractStoredCall">
+		<property name="procedureName" value="findAllUsers" />
+		<property name="cursorParameters">
+			<list>
+				<bean parent="cursorParameter">
+					<constructor-arg value="USERS_ASC" />
+					<constructor-arg ref="userRowMapper" />
+				</bean>
+				<bean parent="cursorParameter">
+					<constructor-arg value="USERS_DESC" />
+					<constructor-arg ref="userRowMapper" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="findAllUsersAndProperty" parent="abstractStoredCall">
+		<property name="procedureName" value="findAllUsersAndProperty" />
+		<property name="parameters">
+			<array>
+				<bean parent="varcharAsStringSqlOutParameter">
+					<constructor-arg value="PROPERTY" />
+				</bean>
+			</array>
+		</property>
+		<property name="cursorParameters">
+			<list>
+				<bean parent="cursorParameter">
+					<constructor-arg value="USERS_ASC" />
+					<constructor-arg ref="userRowMapper" />
+				</bean>
+				<bean parent="cursorParameter">
+					<constructor-arg value="USERS_DESC" />
+					<constructor-arg ref="userRowMapper" />
+				</bean>
+			</list>
 		</property>
 	</bean>
 </beans>
