@@ -27,12 +27,28 @@
 	
 	<bean id="bigIntAslongSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInParameter" abstract="true" />
 	
-	<bean id="insertUser" parent="abstractStoredCall">
+	<bean id="timestampAsDateTimeSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlInParameter" abstract="true" />
+	
+	<bean id="inserUserOverload1" parent="abstractStoredCall">
 		<property name="procedureName" value="insertUser" />
 		<property name="parameters">
 			<array>
 				<bean parent="bigIntAslongSqlInParameter">
 					<constructor-arg value="ID" />
+				</bean>
+			</array>
+		</property>
+	</bean>
+	
+	<bean id="insertUserOverload2" parent="abstractStoredCall">
+		<property name="procedureName" value="insertUser" />
+		<property name="parameters">
+			<array>
+				<bean parent="bigIntAslongSqlInParameter">
+					<constructor-arg value="ID" />
+				</bean>
+				<bean parent="timestampAsDateTimeSqlInParameter">
+					<constructor-arg value="BIRTH_DATE" />
 				</bean>
 			</array>
 		</property>

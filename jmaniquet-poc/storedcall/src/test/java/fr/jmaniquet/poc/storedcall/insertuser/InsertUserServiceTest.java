@@ -1,5 +1,6 @@
 package fr.jmaniquet.poc.storedcall.insertuser;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.storedcall.insertuser.InsertUserService;
 import fr.jmaniquet.poc.tools.random.RandomUtils;
 import fr.jmaniquet.poc.tools.user.User;
 import fr.jmaniquet.poc.tools.user.UserBuilder;
@@ -17,9 +17,13 @@ import fr.jmaniquet.poc.tools.user.UserUtils;
 @ContextConfiguration(locations = {"classpath:spring/storedcall-test-context.xml"})
 public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringContextTests {
 
-	private static final String GIVEN_NAME = "givenName";
+	private static final String OVERLOAD_GIVEN_NAME1 = "overloadGivenName1";
 
-	private static final String NAME = "name";
+	private static final String OVERLOAD_NAME1 = "overloadName1";
+
+	private static final String OVERLOAD_GIVEN_NAME2 = "overloadGivenName2";
+
+	private static final String OVERLOAD_NAME2 = "overloadName2";
 
 	@Autowired
 	private UserUtils userUtils;
@@ -28,11 +32,32 @@ public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringCont
 	private InsertUserService insertUserService;
 	
 	@Test
+	public void testInsert() {
+		Long id = RandomUtils.randomId();
+		DateTime birthDateJoda = RandomUtils.randomDate();
+		User expectedUser = UserBuilder.builder().id(id).name(OVERLOAD_NAME2).givenName(OVERLOAD_GIVEN_NAME2).birthDate(birthDateJoda).build();
+		
+		insertUserService.insertUser(id, birthDateJoda);
+		User actualUser = userUtils.findUserById(id);
+		userUtils.assertEquals(expectedUser, actualUser);
+	}
+	
+	@Test
 	public void testInsertWithBirthDateNullDefault() {
 		Long id = RandomUtils.randomId();
-		User expectedUser = UserBuilder.builder().id(id).name(NAME).givenName(GIVEN_NAME).birthDate(null).build();
+		User expectedUser = UserBuilder.builder().id(id).name(OVERLOAD_NAME1).givenName(OVERLOAD_GIVEN_NAME1).birthDate(null).build();
 		
 		insertUserService.insertUser(id);
+		User actualUser = userUtils.findUserById(id);
+		userUtils.assertEquals(expectedUser, actualUser);
+	}
+	
+	@Test
+	public void testInsertWithBirthDateNullParam() {
+		Long id = RandomUtils.randomId();
+		User expectedUser = UserBuilder.builder().id(id).name(OVERLOAD_NAME2).givenName(OVERLOAD_GIVEN_NAME2).birthDate(null).build();
+		
+		insertUserService.insertUser(id, null);
 		User actualUser = userUtils.findUserById(id);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}

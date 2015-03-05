@@ -4,9 +4,12 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import org.joda.time.DateTime;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+
+import fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlValue;
 
 public class StoredCallImpl implements StoredCall {
 	
@@ -35,8 +38,29 @@ public class StoredCallImpl implements StoredCall {
 	
 	@Override
 	public StoredCallResult execute(Object... args) {		
-		Map<String, Object> resultMap = call.execute(args);
+		Object[] argsToUse = new Object[args.length];
+		
+		for (int i = 0; i < argsToUse.length; i++) {
+			Object arg = args[i];
+			Object argToUse = processArg(arg);
+			argsToUse[i] = argToUse;
+		}
+		
+		Map<String, Object> resultMap = call.execute(argsToUse);
 		return new StoredCallResult(resultMap);
+	}
+	
+	private Object processArg(Object arg) {
+		if (arg == null) {
+			return null;
+		}
+		
+		if (arg instanceof DateTime) {
+			DateTime joda = (DateTime) arg;
+			return new TimestampAsDateTimeSqlValue(joda);
+		}
+		
+		return arg;
 	}
 
 	public String getProcedureName() {
