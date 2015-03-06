@@ -24,4 +24,15 @@
 		FROM USERS U
 		WHERE ID = #{id}
 	</select>
+	
+	<insert id="insert">
+		INSERT INTO USERS (ID, NAME, GIVEN_NAME, BIRTH_DATE)
+		VALUES (#{user.id}, #{user.name} , #{user.givenName}, #{user.birthDate})
+	</insert>
+	
+	<insert id="updateBirthDate">
+		UPDATE USERS
+		SET BIRTH_DATE = #{birthDate}
+		WHERE ID = #{id}
+	</insert>
 </mapper>

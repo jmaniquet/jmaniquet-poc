@@ -1,0 +1,72 @@
+package fr.jmaniquet.poc.mybatis.jodatime.handler;
+
+import static fr.jmaniquet.poc.testutils.TestDataConstants.BIRTHDATE_TEST;
+import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_ID;
+
+import org.joda.time.DateTime;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.github.springtestdbunit.DbUnitTestExecutionListener;
+import com.github.springtestdbunit.annotation.DatabaseSetup;
+import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+
+import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
+import fr.jmaniquet.poc.tools.random.RandomUtils;
+import fr.jmaniquet.poc.tools.user.User;
+import fr.jmaniquet.poc.tools.user.UserUtils;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:spring/mybatis-jodatime-test-context.xml"})
+@TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)
+@DbUnitConfiguration(databaseConnection = "dataSource")
+@DatabaseSetup("classpath:/selectuser-dataset.xml")
+public class JodaTimeHandlerUpdateByIdTest extends AbstractTransactionalJUnit4SpringContextTests {
+	
+	@Autowired
+	private UserUtils userUtils;
+	
+	@Autowired
+	private UserMapper underTest;
+	
+	@Test
+	public void testUpdateBirthDate() {
+		checkBirthDate(USER1_ID, BIRTHDATE_TEST);
+		DateTime newDate = RandomUtils.randomDate();
+		underTest.updateBirthDate(USER1_ID, newDate);
+		checkBirthDate(USER1_ID, newDate);
+	}
+	
+	@Test
+	public void testUpdateBirthDateNotNullToNull() {
+		checkBirthDate(USER1_ID, BIRTHDATE_TEST);
+		underTest.updateBirthDate(USER1_ID, null);
+		checkBirthDate(USER1_ID, null);
+	}
+	
+	@Test
+	public void testUpdateBirthDateNullToNull() {
+		checkBirthDate(USER2_ID, null);
+		underTest.updateBirthDate(USER2_ID, BIRTHDATE_TEST);
+		checkBirthDate(USER2_ID, BIRTHDATE_TEST);
+	}
+	
+	private void checkBirthDate(Long userId, DateTime expectedBirthDate) {
+		User u = userUtils.findUserById(userId);
+		DateTime actual = u.getBirthDate();
+		
+		if (expectedBirthDate == null) {
+			Assert.assertNull(actual);
+		} else {
+			Assert.assertEquals(expectedBirthDate, actual);
+		}
+		
+	}
+}
