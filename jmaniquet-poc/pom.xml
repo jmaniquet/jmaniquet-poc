@@ -23,6 +23,7 @@
 	<modules>
 		<module>tools</module>
 		<module>storedcall</module>
+		<module>mybatis-jodatime</module>
 	</modules>
 
 	<dependencyManagement>
