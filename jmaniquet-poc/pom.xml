@@ -24,6 +24,7 @@
 		<module>tools</module>
 		<module>storedcall</module>
 		<module>mybatis-jodatime</module>
+		<module>jdbctemplate-jodatime</module>
 	</modules>
 
 	<dependencyManagement>
