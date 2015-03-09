@@ -4,7 +4,7 @@
 
 	<groupId>fr.jmaniquet.poc</groupId>
 	<artifactId>jmaniquet-poc</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>jmaniquet-poc</name>
