@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper">
+
+	<resultMap  id="userMap" type="fr.jmaniquet.poc.tools.user.User">
+		<result column="ID" property="id" />
+		<result column="NAME" property="name" />
+		<result column="GIVEN_NAME" property="givenName" />
+		<result column="BIRTH_DATE" property="birthDate" />
+	</resultMap>
+
+	<!-- TODO : faire marcher l'automapping - pour le moment les underscore posent problème
+	<select id="findById" resultType="fr.jmaniquet.poc.tools.user.User">
+		SELECT U.ID, U.NAME, U.GIVEN_NAME, U.BIRTH_DATE
+		FROM USERS U
+		WHERE ID = #{id}
+	</select>
+	-->
+	
+	<select id="findById" resultMap="userMap">
+		SELECT U.ID, U.NAME, U.GIVEN_NAME, U.BIRTH_DATE
+		FROM USERS U
+		WHERE ID = #{id}
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO USERS (ID, NAME, GIVEN_NAME, BIRTH_DATE)
+		VALUES (#{user.id}, #{user.name} , #{user.givenName}, #{user.birthDate})
+	</insert>
+	
+	<insert id="updateBirthDate">
+		UPDATE USERS
+		SET BIRTH_DATE = #{birthDate}
+		WHERE ID = #{id}
+	</insert>
+</mapper>

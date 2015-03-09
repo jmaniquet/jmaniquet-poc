@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation=
+		"http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:annotation-config />
+	<bean class="fr.jmaniquet.poc.mybatis.jodatime.context.MybatisJodatimeContext" />
+
+	<!--
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	
+	<util:properties id="mybatisSettings">
+		<prop key="localCacheScope">STATEMENT</prop>
+		<prop key="mapUnderscoreToCamelCase">true</prop>
+		<prop key="autoMappingBehavior">FULL</prop>
+		<prop key="jdbcTypeForNull">NULL</prop>
+	</util:properties>
+	-->
+	<!--
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="settings" ref="mybatisSettings" />
+		<property name="typeHandlersPackage" value="fr.jmaniquet.poc.jodahandling.mybatis.handler" />
+		<property name="mapperLocations" value="classpath*:mappers/*.xml" />
+	</bean>
+	-->
+	<!--
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="fr.jmaniquet.poc.jodahandling.mybatis.mapper" />
+		<property name="markerInterface" value="fr.jmaniquet.poc.jodahandling.mybatis.mapper.GenericMapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="txManager" order="1" />
+	-->
+</beans>
