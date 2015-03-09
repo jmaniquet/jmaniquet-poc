@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<USERS ID="1" NAME="userName1" GIVEN_NAME="userGivenName1" BIRTH_DATE="1982-10-04 13:47:33.000" />
+	<USERS ID="2" NAME="userName2" GIVEN_NAME="userGivenName2" />
+	<USERS ID="3" NAME="userName3" GIVEN_NAME="userGivenName3" BIRTH_DATE="1984-05-22 10:23:37.001" />	
+</dataset>
