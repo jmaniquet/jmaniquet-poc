@@ -1,16 +1,16 @@
 package fr.jmaniquet.poc.jdbctemplate.jodatime;
 
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_BIRTHDATE;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_GIVENNAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_NAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_GIVENNAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_ID;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_NAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER3_BIRTHDATE;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER3_GIVENNAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER3_ID;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER3_NAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_NAME;
 
 import java.util.List;
 import java.util.Map;

@@ -1,14 +1,13 @@
 package fr.jmaniquet.poc.mybatis.jodatime.handler;
 
-import static fr.jmaniquet.poc.testutils.TestDataConstants.BIRTHDATE_TEST;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_GIVENNAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_NAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_GIVENNAME;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_ID;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_NAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,15 +38,9 @@ public class JodaTimeHandlerFindByIdTest extends AbstractTransactionalJUnit4Spri
 	@Autowired
 	private UserMapper underTest;
 	
-	@Before
-	public void toto() {
-		Object o = getClass().getResource("mappers/userMapper.xml");
-		System.out.println(o);
-	}
-	
 	@Test
 	public void testFindByIdWithBirthDateNotNull() {
-		User expectedUser = UserBuilder.builder().id(USER1_ID).name(USER1_NAME).givenName(USER1_GIVENNAME).birthDate(BIRTHDATE_TEST).build();
+		User expectedUser = UserBuilder.builder().id(USER1_ID).name(USER1_NAME).givenName(USER1_GIVENNAME).birthDate(USER1_BIRTHDATE).build();
 		User actualUser = underTest.findById(USER1_ID);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}

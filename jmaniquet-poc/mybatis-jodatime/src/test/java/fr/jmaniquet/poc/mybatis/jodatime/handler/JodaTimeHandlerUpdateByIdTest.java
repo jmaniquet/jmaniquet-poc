@@ -1,8 +1,8 @@
 package fr.jmaniquet.poc.mybatis.jodatime.handler;
 
-import static fr.jmaniquet.poc.testutils.TestDataConstants.BIRTHDATE_TEST;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.testutils.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
 
 import org.joda.time.DateTime;
 import org.junit.Assert;
@@ -38,7 +38,7 @@ public class JodaTimeHandlerUpdateByIdTest extends AbstractTransactionalJUnit4Sp
 	
 	@Test
 	public void testUpdateBirthDate() {
-		checkBirthDate(USER1_ID, BIRTHDATE_TEST);
+		checkBirthDate(USER1_ID, USER1_BIRTHDATE);
 		DateTime newDate = RandomUtils.randomDate();
 		underTest.updateBirthDate(USER1_ID, newDate);
 		checkBirthDate(USER1_ID, newDate);
@@ -46,7 +46,7 @@ public class JodaTimeHandlerUpdateByIdTest extends AbstractTransactionalJUnit4Sp
 	
 	@Test
 	public void testUpdateBirthDateNotNullToNull() {
-		checkBirthDate(USER1_ID, BIRTHDATE_TEST);
+		checkBirthDate(USER1_ID, USER1_BIRTHDATE);
 		underTest.updateBirthDate(USER1_ID, null);
 		checkBirthDate(USER1_ID, null);
 	}
@@ -54,8 +54,8 @@ public class JodaTimeHandlerUpdateByIdTest extends AbstractTransactionalJUnit4Sp
 	@Test
 	public void testUpdateBirthDateNullToNull() {
 		checkBirthDate(USER2_ID, null);
-		underTest.updateBirthDate(USER2_ID, BIRTHDATE_TEST);
-		checkBirthDate(USER2_ID, BIRTHDATE_TEST);
+		underTest.updateBirthDate(USER2_ID, USER1_BIRTHDATE);
+		checkBirthDate(USER2_ID, USER1_BIRTHDATE);
 	}
 	
 	private void checkBirthDate(Long userId, DateTime expectedBirthDate) {
