@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
-import org.joda.time.DateTimeConstants;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,35 +52,17 @@ public class JodaJdbcTemplateSelectTest extends AbstractTransactionalJUnit4Sprin
 
 	@Test
 	public void testQueryForListOfDate() {
-		DateTime birthDate1 = DateTime.now()
-				.withDayOfMonth(4)
-				.withMonthOfYear(DateTimeConstants.OCTOBER)
-				.withYear(1982)
-				.withHourOfDay(13)
-				.withMinuteOfHour(47)
-				.withSecondOfMinute(33)
-				.withMillisOfSecond(0);
-		
-		DateTime birthDate3 = DateTime.now()
-				.withDayOfMonth(22)
-				.withMonthOfYear(DateTimeConstants.MAY)
-				.withYear(1984)
-				.withHourOfDay(10)
-				.withMinuteOfHour(23)
-				.withSecondOfMinute(37)
-				.withMillisOfSecond(1);
-		
 		List<DateTime> resultList = jdbcTemplate.queryForList(SQL_SELECT_ALL_DATES, DateTime.class);
 		Assert.assertEquals(3, resultList.size());
 		
 		DateTime actual1 = resultList.get(0);
-		Assert.assertEquals(birthDate1, actual1);
+		Assert.assertEquals(USER1_BIRTHDATE, actual1);
 		
 		DateTime actual2 = resultList.get(1);
 		Assert.assertNull(actual2);
 		
 		DateTime actual3 = resultList.get(2);
-		Assert.assertEquals(birthDate3, actual3);
+		Assert.assertEquals(USER3_BIRTHDATE, actual3);
 	}
 	
 	@Test
