@@ -41,7 +41,7 @@ public class StoredCallImpl implements StoredCall {
 		this.call = theCall;
 	}
 	
-	public StoredCallImpl(SimpleJdbcCall call) {
+	StoredCallImpl(SimpleJdbcCall call) {
 		this.call = call;
 	}
 	
