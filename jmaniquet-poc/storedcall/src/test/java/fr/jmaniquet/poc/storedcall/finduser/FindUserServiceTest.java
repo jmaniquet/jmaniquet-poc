@@ -43,11 +43,11 @@ public class FindUserServiceTest extends AbstractTransactionalJUnit4SpringContex
 	private UserUtils userUtils;
 	
 	@Autowired
-	private FindUserService findUserService;
+	private FindUserService underTest;
 	
 	@Test
 	public void testFindAllUsers() {
-		FindAllUsersResult result = findUserService.findAllUsers();
+		FindAllUsersResult result = underTest.findAllUsers();
 		
 		List<User> orderedAsc = result.getOrderedAsc();
 		List<User> orderedDesc = result.getOrderedDesc();
@@ -57,7 +57,7 @@ public class FindUserServiceTest extends AbstractTransactionalJUnit4SpringContex
 	
 	@Test
 	public void testFindAllUsersAndProperty() {
-		FindAllUsersAndPropertyResult result = findUserService.findAllUsersAndProperty();
+		FindAllUsersAndPropertyResult result = underTest.findAllUsersAndProperty();
 		
 		List<User> orderedAsc = result.getOrderedAsc();
 		List<User> orderedDesc = result.getOrderedDesc();
@@ -69,14 +69,14 @@ public class FindUserServiceTest extends AbstractTransactionalJUnit4SpringContex
 	@Test
 	public void testFindUserById() {
 		User expectedUser = UserBuilder.builder().id(USER1_ID).name(USER1_NAME).givenName(USER1_GIVENNAME).birthDate(USER1_BIRTHDATE).build();
-		User actualUser = findUserService.findUserById(USER1_ID);
+		User actualUser = underTest.findUserById(USER1_ID);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}
 	
 	@Test
 	public void testFindUserByIdWithBirthDateNull() {
 		User expectedUser = UserBuilder.builder().id(USER2_ID).name(USER2_NAME).givenName(USER2_GIVENNAME).birthDate(null).build();
-		User actualUser = findUserService.findUserById(USER2_ID);
+		User actualUser = underTest.findUserById(USER2_ID);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}
 	

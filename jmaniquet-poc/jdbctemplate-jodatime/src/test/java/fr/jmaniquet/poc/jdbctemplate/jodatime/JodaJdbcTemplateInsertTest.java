@@ -25,7 +25,7 @@ public class JodaJdbcTemplateInsertTest extends AbstractTransactionalJUnit4Sprin
 	
 	@Autowired
 	@Qualifier(BeanConstants.CUSTOM_JDBCTEMPLATE)
-	private JdbcTemplate jdbcTemplate;
+	private JdbcTemplate underTest;
 	
 	@Autowired
 	private UserUtils userUtils;
@@ -38,7 +38,7 @@ public class JodaJdbcTemplateInsertTest extends AbstractTransactionalJUnit4Sprin
 	@Test
 	public void testInsert() {
 		User expectedUser = UserBuilder.builder().id(id).name(name).givenName(givenName).birthDate(birthDate).build();
-		jdbcTemplate.update(SQL_INSERT_ALL_FIELDS, id, name, givenName, birthDate);
+		underTest.update(SQL_INSERT_ALL_FIELDS, id, name, givenName, birthDate);
 		
 		User actualUser = userUtils.findUserById(id);
 		Assert.assertNotNull(actualUser.getBirthDate());
@@ -49,7 +49,7 @@ public class JodaJdbcTemplateInsertTest extends AbstractTransactionalJUnit4Sprin
 	@Test
 	public void testInsertWithBirthDateNullDefault() {
 		User expectedUser = UserBuilder.builder().id(id).name(name).givenName(givenName).birthDate(null).build();
-		jdbcTemplate.update(SQL_INSERT_WITH_DEFAULT_BIRTHDATE, id, name, givenName);
+		underTest.update(SQL_INSERT_WITH_DEFAULT_BIRTHDATE, id, name, givenName);
 		
 		User actualUser = userUtils.findUserById(id);
 		Assert.assertNull(actualUser.getBirthDate());
@@ -59,7 +59,7 @@ public class JodaJdbcTemplateInsertTest extends AbstractTransactionalJUnit4Sprin
 	@Test
 	public void testInsertWithBirthDateNullParam() {
 		User expectedUser = UserBuilder.builder().id(id).name(name).givenName(givenName).birthDate(null).build();
-		jdbcTemplate.update(SQL_INSERT_ALL_FIELDS, id, name, givenName, null);
+		underTest.update(SQL_INSERT_ALL_FIELDS, id, name, givenName, null);
 		
 		User actualUser = userUtils.findUserById(id);
 		Assert.assertNull(actualUser.getBirthDate());

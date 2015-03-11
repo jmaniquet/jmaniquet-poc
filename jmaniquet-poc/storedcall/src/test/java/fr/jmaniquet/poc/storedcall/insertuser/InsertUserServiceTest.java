@@ -29,7 +29,7 @@ public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringCont
 	private UserUtils userUtils;
 	
 	@Autowired
-	private InsertUserService insertUserService;
+	private InsertUserService underTest;
 	
 	@Test
 	public void testInsert() {
@@ -37,7 +37,7 @@ public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringCont
 		DateTime birthDateJoda = RandomUtils.randomDate();
 		User expectedUser = UserBuilder.builder().id(id).name(OVERLOAD_NAME2).givenName(OVERLOAD_GIVEN_NAME2).birthDate(birthDateJoda).build();
 		
-		insertUserService.insertUser(id, birthDateJoda);
+		underTest.insertUser(id, birthDateJoda);
 		User actualUser = userUtils.findUserById(id);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}
@@ -47,7 +47,7 @@ public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringCont
 		Long id = RandomUtils.randomId();
 		User expectedUser = UserBuilder.builder().id(id).name(OVERLOAD_NAME1).givenName(OVERLOAD_GIVEN_NAME1).birthDate(null).build();
 		
-		insertUserService.insertUser(id);
+		underTest.insertUser(id);
 		User actualUser = userUtils.findUserById(id);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}
@@ -57,7 +57,7 @@ public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringCont
 		Long id = RandomUtils.randomId();
 		User expectedUser = UserBuilder.builder().id(id).name(OVERLOAD_NAME2).givenName(OVERLOAD_GIVEN_NAME2).birthDate(null).build();
 		
-		insertUserService.insertUser(id, null);
+		underTest.insertUser(id, null);
 		User actualUser = userUtils.findUserById(id);
 		userUtils.assertEquals(expectedUser, actualUser);
 	}

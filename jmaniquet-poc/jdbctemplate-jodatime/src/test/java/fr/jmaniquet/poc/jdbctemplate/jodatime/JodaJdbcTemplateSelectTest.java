@@ -48,11 +48,11 @@ public class JodaJdbcTemplateSelectTest extends AbstractTransactionalJUnit4Sprin
 	
 	@Autowired
 	@Qualifier(BeanConstants.CUSTOM_JDBCTEMPLATE)
-	private JdbcTemplate jdbcTemplate;
+	private JdbcTemplate underTest;
 
 	@Test
 	public void testQueryForListOfDate() {
-		List<DateTime> resultList = jdbcTemplate.queryForList(SQL_SELECT_ALL_DATES, DateTime.class);
+		List<DateTime> resultList = underTest.queryForList(SQL_SELECT_ALL_DATES, DateTime.class);
 		Assert.assertEquals(3, resultList.size());
 		
 		DateTime actual1 = resultList.get(0);
@@ -71,7 +71,7 @@ public class JodaJdbcTemplateSelectTest extends AbstractTransactionalJUnit4Sprin
 		User expectedUser2 = UserBuilder.builder().id(USER2_ID).name(USER2_NAME).givenName(USER2_GIVENNAME).birthDate(null).build();
 		User expectedUser3 = UserBuilder.builder().id(USER3_ID).name(USER3_NAME).givenName(USER3_GIVENNAME).birthDate(USER3_BIRTHDATE).build();
 		
-		List<Map<String, Object>> resultList = jdbcTemplate.queryForList(SQL_SELECT_ALL_ENTRIES);
+		List<Map<String, Object>> resultList = underTest.queryForList(SQL_SELECT_ALL_ENTRIES);
 		Assert.assertEquals(3, resultList.size());
 		
 		Map<String, Object> userEntry1 = resultList.get(0);
@@ -91,7 +91,7 @@ public class JodaJdbcTemplateSelectTest extends AbstractTransactionalJUnit4Sprin
 	@Test
 	public void testQueryForMapWhenDateNotNull() {
 		User expectedUser = UserBuilder.builder().id(USER1_ID).name(USER1_NAME).givenName(USER1_GIVENNAME).birthDate(USER1_BIRTHDATE).build();
-		Map<String, Object> userEntry = jdbcTemplate.queryForMap(SQL_SELECT_ENTRY, USER1_ID);
+		Map<String, Object> userEntry = underTest.queryForMap(SQL_SELECT_ENTRY, USER1_ID);
 		assertUserEntry(expectedUser, userEntry);
 		Assert.assertNotNull(userEntry.get("BIRTH_DATE"));
 	}
@@ -99,14 +99,14 @@ public class JodaJdbcTemplateSelectTest extends AbstractTransactionalJUnit4Sprin
 	@Test
 	public void testQueryForMapWhenDateNull() {
 		User expectedUser = UserBuilder.builder().id(USER2_ID).name(USER2_NAME).givenName(USER2_GIVENNAME).birthDate(null).build();
-		Map<String, Object> userEntry = jdbcTemplate.queryForMap(SQL_SELECT_ENTRY, USER2_ID);
+		Map<String, Object> userEntry = underTest.queryForMap(SQL_SELECT_ENTRY, USER2_ID);
 		assertUserEntry(expectedUser, userEntry);
 		Assert.assertNull(userEntry.get("BIRTH_DATE"));
 	}
 	
 	@Test
 	public void testQueryForObjectWhenDateNotNull() {
-		DateTime result = jdbcTemplate.queryForObject(SQL_SELECT_BIRTHDATE, DateTime.class, USER1_ID);
+		DateTime result = underTest.queryForObject(SQL_SELECT_BIRTHDATE, DateTime.class, USER1_ID);
 		Assert.assertNotNull(result);
 		Assert.assertEquals(USER1_BIRTHDATE, result);	
 	}
@@ -114,7 +114,7 @@ public class JodaJdbcTemplateSelectTest extends AbstractTransactionalJUnit4Sprin
 	@Test
 	public void testQueryForObjectWhenDateNull() {
 		Object [] args = {USER2_ID};
-		Object birthDate = jdbcTemplate.queryForObject(SQL_SELECT_BIRTHDATE, args, Object.class);
+		Object birthDate = underTest.queryForObject(SQL_SELECT_BIRTHDATE, args, Object.class);
 		Assert.assertNull(birthDate);
 	}
 	
