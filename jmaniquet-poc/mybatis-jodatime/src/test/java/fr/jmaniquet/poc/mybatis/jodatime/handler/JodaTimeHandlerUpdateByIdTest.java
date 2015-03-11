@@ -54,8 +54,9 @@ public class JodaTimeHandlerUpdateByIdTest extends AbstractTransactionalJUnit4Sp
 	@Test
 	public void testUpdateBirthDateNullToNull() {
 		checkBirthDate(USER2_ID, null);
-		underTest.updateBirthDate(USER2_ID, USER1_BIRTHDATE);
-		checkBirthDate(USER2_ID, USER1_BIRTHDATE);
+		DateTime newDate = RandomUtils.randomDate();
+		underTest.updateBirthDate(USER2_ID, newDate);
+		checkBirthDate(USER2_ID, newDate);
 	}
 	
 	private void checkBirthDate(Long userId, DateTime expectedBirthDate) {
