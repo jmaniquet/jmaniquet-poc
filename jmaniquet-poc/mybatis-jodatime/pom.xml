@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>fr.jmaniquet.poc</groupId>
 		<artifactId>jmaniquet-poc</artifactId>
-		<version>1.2.0</version>
+		<version>1.2.1</version>
 	</parent>
 	
 	<url>http://maven.apache.org</url>
@@ -58,4 +58,18 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>fr/jmaniquet/poc/**/*Mapper.xml</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 </project>

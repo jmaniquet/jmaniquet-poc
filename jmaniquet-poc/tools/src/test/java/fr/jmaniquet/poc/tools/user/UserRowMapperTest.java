@@ -1,7 +1,13 @@
 package fr.jmaniquet.poc.tools.user;
 
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeConstants;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,9 +21,6 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.tools.user.UserUtils;
-import fr.jmaniquet.poc.tools.user.User;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/tools-context-test.xml"})
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)
@@ -28,33 +31,21 @@ public class UserRowMapperTest extends AbstractTransactionalJUnit4SpringContextT
 	@Autowired
 	private UserUtils underTest;
 	
-	private Long fakeId1 = 1L;
-	private Long fakeId2 = 2L;
-	
-	private DateTime fakeDateTime = DateTime.now()
-			.withDayOfMonth(4)
-			.withMonthOfYear(DateTimeConstants.OCTOBER)
-			.withYear(1982)
-			.withHourOfDay(13)
-			.withMinuteOfHour(47)
-			.withSecondOfMinute(33)
-			.withMillisOfSecond(0);
-	
 	@Test
 	public void testUserRowMapperWhenBirthDateNotNull() {
-		User u = underTest.findUserById(fakeId1);
-		Assert.assertEquals(fakeId1, u.getId());
-		Assert.assertEquals("userName1", u.getName());
-		Assert.assertEquals("userGivenName1", u.getGivenName());
-		Assert.assertEquals(fakeDateTime, u.getBirthDate());
+		User u = underTest.findUserById(USER1_ID);
+		Assert.assertEquals(USER1_ID, u.getId());
+		Assert.assertEquals(USER1_NAME, u.getName());
+		Assert.assertEquals(USER1_GIVENNAME, u.getGivenName());
+		Assert.assertEquals(USER1_BIRTHDATE, u.getBirthDate());
 	}
 	
 	@Test
 	public void testUserRowMapperWhenBirthDateNull() {
-		User u = underTest.findUserById(fakeId2);
-		Assert.assertEquals(fakeId2, u.getId());
-		Assert.assertEquals("userName2", u.getName());
-		Assert.assertEquals("userGivenName2", u.getGivenName());
+		User u = underTest.findUserById(USER2_ID);
+		Assert.assertEquals(USER2_ID, u.getId());
+		Assert.assertEquals(USER2_NAME, u.getName());
+		Assert.assertEquals(USER2_GIVENNAME, u.getGivenName());
 		Assert.assertNull(u.getBirthDate());
 	}
 }
