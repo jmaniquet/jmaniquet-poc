@@ -10,8 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.support.ResourceTransactionManager;
@@ -37,8 +35,10 @@ public class MybatisJodatimeContext {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource);
 		sqlSessionFactoryBean.setTypeHandlersPackage("fr.jmaniquet.poc.mybatis.jodatime.handler");
-		Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:mappers/*.xml");
-		sqlSessionFactoryBean.setMapperLocations(resources);
+		
+		// TODO : vérifier pourquoi ce n'est plus nécessaire
+		/*Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:fr/jmaniquet/poc/*Mapper.xml");
+		sqlSessionFactoryBean.setMapperLocations(resources);*/
 		return sqlSessionFactoryBean.getObject();
 	}
 	
