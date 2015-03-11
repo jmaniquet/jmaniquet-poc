@@ -12,7 +12,7 @@ import fr.jmaniquet.poc.tools.user.User;
 import fr.jmaniquet.poc.tools.user.UserBuilder;
 
 @Service
-public class FindUserServiceImpl implements FindUserService {
+class FindUserServiceImpl implements FindUserService {
 	
 	@Autowired
 	@Qualifier("findAllUsers")

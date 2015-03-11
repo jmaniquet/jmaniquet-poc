@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import fr.jmaniquet.poc.storedcall.core.StoredCall;
 
 @Service
-public class InsertUserServiceImpl implements InsertUserService {
+class InsertUserServiceImpl implements InsertUserService {
 	
 	@Autowired
 	@Qualifier("inserUserOverload1")
