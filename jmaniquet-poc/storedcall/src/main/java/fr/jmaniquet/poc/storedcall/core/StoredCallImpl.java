@@ -28,6 +28,10 @@ public class StoredCallImpl implements StoredCall {
 		cursorParameters = new ArrayList<>();
 	}
 	
+	StoredCallImpl(SimpleJdbcCall call) {
+		this.call = call;
+	}
+	
 	@PostConstruct
 	public void postConstruct() {
 		SimpleJdbcCall theCall = new SimpleJdbcCall(jdbcTemplate)
@@ -39,10 +43,6 @@ public class StoredCallImpl implements StoredCall {
 		}
 		
 		this.call = theCall;
-	}
-	
-	StoredCallImpl(SimpleJdbcCall call) {
-		this.call = call;
 	}
 	
 	@Override
@@ -79,7 +79,7 @@ public class StoredCallImpl implements StoredCall {
 	public void setProcedureName(String procedureName) {
 		this.procedureName = procedureName;
 	}
-
+	
 	public SqlParameter[] getParameters() {
 		return parameters;
 	}
@@ -103,4 +103,5 @@ public class StoredCallImpl implements StoredCall {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+
 }
