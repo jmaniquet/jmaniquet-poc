@@ -10,7 +10,7 @@ public class FindAllUsersAndPropertyResult {
 	private List<User> orderedDesc;
 	private String property;
 	
-	public FindAllUsersAndPropertyResult(List<User> ascOrdered, List<User> descOrdered, String property) {
+	FindAllUsersAndPropertyResult(List<User> ascOrdered, List<User> descOrdered, String property) {
 		super();
 		this.orderedAsc = ascOrdered;
 		this.orderedDesc = descOrdered;
