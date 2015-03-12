@@ -4,9 +4,9 @@ import java.sql.Types;
 
 import org.springframework.jdbc.core.SqlOutParameter;
 
-public class VarcharAsLongSqlOutParameter extends SqlOutParameter {
+public class VarcharAsStringSqlOutParameter extends SqlOutParameter {
 
-	public VarcharAsLongSqlOutParameter(String name) {
+	public VarcharAsStringSqlOutParameter(String name) {
 		super(name, Types.VARCHAR);
 	}
 }
