@@ -17,6 +17,7 @@ import fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlV
 public class StoredCallImpl implements StoredCall {
 	
 	private String procedureName;
+	private boolean function;
 	private SqlParameter [] parameters;
 	private List<CursorParameter<?>> cursorParameters;
 	private JdbcTemplate jdbcTemplate;
@@ -34,14 +35,19 @@ public class StoredCallImpl implements StoredCall {
 	
 	@PostConstruct
 	public void postConstruct() {
-		SimpleJdbcCall theCall = new SimpleJdbcCall(jdbcTemplate)
-				.withProcedureName(procedureName)
-				.declareParameters(parameters);
+		SimpleJdbcCall theCall = new SimpleJdbcCall(jdbcTemplate);
+		
+		if (function) {
+			theCall = theCall.withFunctionName(procedureName);
+		} else {
+			theCall = theCall.withProcedureName(procedureName);
+		}
+		
+		theCall = theCall.declareParameters(parameters);
 		
 		for (CursorParameter<?> cursorParameter : cursorParameters) {
 			theCall = theCall.returningResultSet(cursorParameter.getParameterName(), cursorParameter.getRowMapper());
 		}
-		
 		this.call = theCall;
 	}
 	
@@ -79,6 +85,14 @@ public class StoredCallImpl implements StoredCall {
 	public void setProcedureName(String procedureName) {
 		this.procedureName = procedureName;
 	}
+
+	public boolean isFunction() {
+		return function;
+	}
+
+	public void setFunction(boolean function) {
+		this.function = function;
+	}
 	
 	public SqlParameter[] getParameters() {
 		return parameters;
@@ -103,5 +117,4 @@ public class StoredCallImpl implements StoredCall {
 	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-
 }

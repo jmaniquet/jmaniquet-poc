@@ -28,6 +28,10 @@
 	<bean id="bigIntAslongSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInParameter" abstract="true" />
 	<bean id="bigIntAslongSqlInOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInOutParameter" abstract="true" />
 	
+	<bean id="integerAsIntegerSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.integer.IntegerAsIntegerSqlInParameter" abstract="true" />
+	<bean id="integerAsIntegerSqlOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.integer.IntegerAsIntegerSqlOutParameter" abstract="true" />
+	<bean id="integerAsIntegerSqlReturnResultSet" class="fr.jmaniquet.poc.storedcall.core.params.integer.IntegerAsIntegerSqlReturnResultSet" abstract="true" />
+	
 	<bean id="varcharAsStringSqlOutParameter" class="fr.jmaniquet.poc.storedcall.core.params.varchar.VarcharAsStringSqlOutParameter" abstract="true" />
 	
 	<bean id="timestampAsDateTimeSqlInParameter" class="fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlInParameter" abstract="true" />
@@ -116,6 +120,18 @@
 					<constructor-arg ref="userRowMapper" />
 				</bean>
 			</list>
+		</property>
+	</bean>
+	
+	<bean id="countUsers" parent="abstractStoredCall">
+		<property name="procedureName" value="countUsers" />
+		<property name="function" value="true" />
+		<property name="parameters">
+			<array>
+				<bean parent="integerAsIntegerSqlReturnResultSet">
+					<constructor-arg value="FUNCTION_RESULT" />
+				</bean>
+			</array>
 		</property>
 	</bean>
 </beans>
