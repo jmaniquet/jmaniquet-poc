@@ -14,16 +14,20 @@ public class StoredCallResult {
 		this.resultMap = resultMap;
 	}
 	
-	public Long getLong(String key) {
-		return extractFromMap(key);
-	}
-	
 	public DateTime getDateTime(String key) {
 		return extractFromMap(key);
 	}
 	
 	public <T> List<T> getList(String key) {
 		return extractFromMap(key);
+	}
+	
+	public Long getLong(String key) {
+		return extractFromMap(key);
+	}
+	
+	public Object getResultProperty(String key) {
+		return this.resultMap.get(key);
 	}
 	
 	public String getString(String key) {
@@ -33,9 +37,5 @@ public class StoredCallResult {
 	@SuppressWarnings("unchecked")
 	private <T> T extractFromMap(String key) {
 		return (T) this.resultMap.get(key);
-	}
-	
-	public Object getResultProperty(String key) {
-		return this.resultMap.get(key);
 	}
 }
