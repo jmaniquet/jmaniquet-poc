@@ -12,9 +12,13 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/tools-context-test.xml"})
+@ContextConfiguration(classes = {
+		ToolsEmbaddedDataBaseContext.class,
+		ToolsCoreContext.class}
+)
 public class ToolsCoreContextTest extends AbstractJUnit4SpringContextTests {
 	
 	@Autowired

@@ -11,13 +11,18 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import fr.jmaniquet.poc.jdbctemplate.jodatime.context.JdbcTemplateJodaTimeContext;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/jdbctemplate-jodatime-test-context.xml"})
+@ContextConfiguration(classes = {
+		ToolsEmbaddedDataBaseContext.class,
+		JdbcTemplateJodaTimeContext.class}
+)
 public class JodaJdbcTemplateInsertTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	private static final String SQL_INSERT_ALL_FIELDS = "INSERT INTO USERS (ID, NAME, GIVEN_NAME, BIRTH_DATE) VALUES (?, ?, ?, ?)";
