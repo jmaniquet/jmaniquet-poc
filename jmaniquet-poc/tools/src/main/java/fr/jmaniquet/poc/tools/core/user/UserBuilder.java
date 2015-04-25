@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.tools.user;
+package fr.jmaniquet.poc.tools.core.user;
 
 import org.joda.time.DateTime;
 

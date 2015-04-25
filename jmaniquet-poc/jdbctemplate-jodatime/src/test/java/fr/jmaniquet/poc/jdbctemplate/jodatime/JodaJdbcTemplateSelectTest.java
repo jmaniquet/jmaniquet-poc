@@ -1,16 +1,16 @@
 package fr.jmaniquet.poc.jdbctemplate.jodatime;
 
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_BIRTHDATE;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_NAME;
 
 import java.util.List;
 import java.util.Map;
@@ -31,8 +31,8 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.tools.user.User;
-import fr.jmaniquet.poc.tools.user.UserBuilder;
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/jdbctemplate-jodatime-test-context.xml"})

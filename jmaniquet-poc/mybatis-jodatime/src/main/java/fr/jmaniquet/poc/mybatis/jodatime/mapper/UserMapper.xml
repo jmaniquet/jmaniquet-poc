@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper">
 
-	<resultMap  id="userMap" type="fr.jmaniquet.poc.tools.user.User">
+	<resultMap  id="userMap" type="fr.jmaniquet.poc.tools.core.user.User">
 		<result column="ID" property="id" />
 		<result column="NAME" property="name" />
 		<result column="GIVEN_NAME" property="givenName" />

@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.tools.constants;
+package fr.jmaniquet.poc.tools.core.constants;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;

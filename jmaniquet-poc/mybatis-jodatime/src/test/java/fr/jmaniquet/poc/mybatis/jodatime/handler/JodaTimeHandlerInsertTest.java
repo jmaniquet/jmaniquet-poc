@@ -9,10 +9,10 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
-import fr.jmaniquet.poc.tools.random.RandomUtils;
-import fr.jmaniquet.poc.tools.user.User;
-import fr.jmaniquet.poc.tools.user.UserBuilder;
-import fr.jmaniquet.poc.tools.user.UserUtils;
+import fr.jmaniquet.poc.tools.core.random.RandomUtils;
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserBuilder;
+import fr.jmaniquet.poc.tools.core.user.UserUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/mybatis-jodatime-test-context.xml"})

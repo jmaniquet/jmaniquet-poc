@@ -1,12 +1,12 @@
-package fr.jmaniquet.poc.tools.user;
+package fr.jmaniquet.poc.tools.core.user;
 
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_NAME;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,6 +20,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/tools-context-test.xml"})

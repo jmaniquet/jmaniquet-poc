@@ -3,7 +3,7 @@ package fr.jmaniquet.poc.mybatis.jodatime.mapper;
 import org.apache.ibatis.annotations.Param;
 import org.joda.time.DateTime;
 
-import fr.jmaniquet.poc.tools.user.User;
+import fr.jmaniquet.poc.tools.core.user.User;
 
 public interface UserMapper extends GenericMapper {	
 	

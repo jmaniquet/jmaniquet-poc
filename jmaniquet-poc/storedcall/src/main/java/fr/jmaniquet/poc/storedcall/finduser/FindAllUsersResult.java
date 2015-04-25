@@ -2,7 +2,7 @@ package fr.jmaniquet.poc.storedcall.finduser;
 
 import java.util.List;
 
-import fr.jmaniquet.poc.tools.user.User;
+import fr.jmaniquet.poc.tools.core.user.User;
 
 public class FindAllUsersResult {
 

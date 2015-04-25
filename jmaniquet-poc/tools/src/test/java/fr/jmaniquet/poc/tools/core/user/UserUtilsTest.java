@@ -1,9 +1,14 @@
-package fr.jmaniquet.poc.tools.user;
+package fr.jmaniquet.poc.tools.core.user;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserBuilder;
+import fr.jmaniquet.poc.tools.core.user.UserUtils;
+import fr.jmaniquet.poc.tools.core.user.UserUtilsImpl;
 
 public class UserUtilsTest {
 	

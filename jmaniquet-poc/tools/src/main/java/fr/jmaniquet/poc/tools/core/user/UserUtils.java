@@ -1,6 +1,6 @@
-package fr.jmaniquet.poc.tools.user;
+package fr.jmaniquet.poc.tools.core.user;
 
-import fr.jmaniquet.poc.tools.user.User;
+import fr.jmaniquet.poc.tools.core.user.User;
 
 public interface UserUtils {
 	

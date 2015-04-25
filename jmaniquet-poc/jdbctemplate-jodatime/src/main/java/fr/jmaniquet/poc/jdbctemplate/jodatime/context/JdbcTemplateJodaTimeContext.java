@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.jmaniquet.poc.jdbctemplate.jodatime.JodaJdbcTemplate;
-import fr.jmaniquet.poc.tools.context.ToolsContext;
+import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
 
 @Configuration
-@Import(ToolsContext.class)
+@Import(ToolsCoreContext.class)
 public class JdbcTemplateJodaTimeContext {
 
 	@Autowired

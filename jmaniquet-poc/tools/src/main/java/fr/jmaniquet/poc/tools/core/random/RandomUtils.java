@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.tools.random;
+package fr.jmaniquet.poc.tools.core.random;
 
 import java.util.Random;
 

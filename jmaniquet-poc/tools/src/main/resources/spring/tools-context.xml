@@ -12,5 +12,5 @@
 	
 	
 	<context:annotation-config />
-	<bean class="fr.jmaniquet.poc.tools.context.ToolsContext" />
+	<bean class="fr.jmaniquet.poc.tools.core.context.ToolsCoreContext" />
 </beans>

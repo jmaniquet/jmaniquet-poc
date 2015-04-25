@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.tools.user;
+package fr.jmaniquet.poc.tools.core.user;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,10 +4,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import fr.jmaniquet.poc.tools.context.ToolsContext;
+import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
 
 @Configuration
-@Import(ToolsContext.class)
+@Import(ToolsCoreContext.class)
 @ComponentScan("fr.jmaniquet.poc.storedcall")
 public class StoredCallContext {
 }

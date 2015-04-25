@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 
 import fr.jmaniquet.poc.storedcall.core.StoredCall;
 import fr.jmaniquet.poc.storedcall.core.StoredCallResult;
-import fr.jmaniquet.poc.tools.user.User;
-import fr.jmaniquet.poc.tools.user.UserBuilder;
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 
 @Service
 class FindUserServiceImpl implements FindUserService {

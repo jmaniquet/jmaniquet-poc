@@ -1,17 +1,17 @@
 package fr.jmaniquet.poc.storedcall.finduser;
 
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.NB_USERS;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_BIRTHDATE;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER3_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.NB_USERS;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER3_NAME;
 
 import java.util.List;
 
@@ -28,9 +28,9 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.tools.user.User;
-import fr.jmaniquet.poc.tools.user.UserBuilder;
-import fr.jmaniquet.poc.tools.user.UserUtils;
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserBuilder;
+import fr.jmaniquet.poc.tools.core.user.UserUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring/storedcall-test-context.xml"})

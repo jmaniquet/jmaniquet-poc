@@ -1,9 +1,9 @@
-package fr.jmaniquet.poc.tools.user;
+package fr.jmaniquet.poc.tools.core.user;
 
-import static fr.jmaniquet.poc.tools.user.UserColumns.BIRTH_DATE;
-import static fr.jmaniquet.poc.tools.user.UserColumns.GIVEN_NAME;
-import static fr.jmaniquet.poc.tools.user.UserColumns.ID;
-import static fr.jmaniquet.poc.tools.user.UserColumns.NAME;
+import static fr.jmaniquet.poc.tools.core.user.UserColumns.BIRTH_DATE;
+import static fr.jmaniquet.poc.tools.core.user.UserColumns.GIVEN_NAME;
+import static fr.jmaniquet.poc.tools.core.user.UserColumns.ID;
+import static fr.jmaniquet.poc.tools.core.user.UserColumns.NAME;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
