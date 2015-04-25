@@ -1,7 +1,5 @@
 package fr.jmaniquet.poc.storedcall.core;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -18,14 +16,14 @@ public class StoredCallImpl implements StoredCall {
 	
 	private String procedureName;
 	private SqlParameter [] parameters;
-	private List<CursorParameter<?>> cursorParameters;
+	private CursorParameter<?> [] cursorParameters;
 	private JdbcTemplate jdbcTemplate;
 
 	private SimpleJdbcCall call;
 	
 	public StoredCallImpl() {
 		parameters = new SqlParameter[0];
-		cursorParameters = new ArrayList<>();
+		cursorParameters = new CursorParameter<?>[0];
 	}
 	
 	StoredCallImpl(SimpleJdbcCall call) {
@@ -84,15 +82,15 @@ public class StoredCallImpl implements StoredCall {
 		return parameters;
 	}
 
-	public void setParameters(SqlParameter[] parameters) {
+	public void setParameters(SqlParameter ... parameters) {
 		this.parameters = parameters;
 	}
 
-	public List<CursorParameter<?>> getCursorParameters() {
+	public CursorParameter<?> [] getCursorParameters() {
 		return cursorParameters;
 	}
 
-	public void setCursorParameters(List<CursorParameter<?>> cursorParameters) {
+	public void setCursorParameters(CursorParameter<?> ... cursorParameters) {
 		this.cursorParameters = cursorParameters;
 	}
 	
