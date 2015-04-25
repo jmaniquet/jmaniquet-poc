@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import fr.jmaniquet.poc.storedcall.core.StoredCall;
-import fr.jmaniquet.poc.storedcall.core.StoredCallImpl;
+import fr.jmaniquet.poc.storedcall.core.StoredCallBuilder;
 import fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInOutParameter;
 import fr.jmaniquet.poc.storedcall.core.params.bigint.BigIntAsLongSqlInParameter;
 import fr.jmaniquet.poc.storedcall.core.params.cursor.CursorParameter;
@@ -32,61 +32,61 @@ public class StoredCallContext {
 	
 	@Bean
 	public StoredCall findAllUsers() {
-		StoredCallImpl call = new StoredCallImpl();
-		call.setJdbcTemplate(jdbcTemplate);
-		call.setProcedureName("findAllUsers");
-		call.setCursorParameters(
-				new CursorParameter<User>("USERS_ASC", userRowMapper),
-				new CursorParameter<User>("USERS_DESC", userRowMapper)
-			);
-		return call;
+		return StoredCallBuilder
+				.builder(jdbcTemplate)
+				.withName("findAllUsers")
+				.addCursorParameters(
+						new CursorParameter<User>("USERS_ASC", userRowMapper),
+						new CursorParameter<User>("USERS_DESC", userRowMapper)
+						)
+				.build();
 	}
 	
 	@Bean
 	public StoredCall findAllUsersAndProperty() {
-		StoredCallImpl call = new StoredCallImpl();
-		call.setJdbcTemplate(jdbcTemplate);
-		call.setProcedureName("findAllUsersAndProperty");
-		call.setParameters(new VarcharAsStringSqlOutParameter("PROPERTY"));
-		call.setCursorParameters(
-				new CursorParameter<User>("USERS_ASC", userRowMapper),
-				new CursorParameter<User>("USERS_DESC", userRowMapper)
-			);
-		return call;
+		return StoredCallBuilder
+				.builder(jdbcTemplate)
+				.withName("findAllUsersAndProperty")
+				.addSqlParameters(new VarcharAsStringSqlOutParameter("PROPERTY"))
+				.addCursorParameters(
+						new CursorParameter<User>("USERS_ASC", userRowMapper),
+						new CursorParameter<User>("USERS_DESC", userRowMapper)
+						)
+				.build();
 	}
 	
 	@Bean
 	public StoredCall findUserById() {
-		StoredCallImpl call = new StoredCallImpl();
-		call.setJdbcTemplate(jdbcTemplate);
-		call.setProcedureName("findUserById");
-		call.setParameters(
-				new BigIntAsLongSqlInOutParameter("ID_P"),
-				new VarcharAsStringSqlOutParameter("NAME"),
-				new VarcharAsStringSqlOutParameter("GIVEN_NAME"),
-				new TimestampAsDateTimeSqlOutParameter("BIRTH_DATE")
-			);
-		return call;
+		return StoredCallBuilder
+				.builder(jdbcTemplate)
+				.withName("findUserById")
+				.addSqlParameters(
+						new BigIntAsLongSqlInOutParameter("ID_P"),
+						new VarcharAsStringSqlOutParameter("NAME"),
+						new VarcharAsStringSqlOutParameter("GIVEN_NAME"),
+						new TimestampAsDateTimeSqlOutParameter("BIRTH_DATE")
+						)
+				.build();
 	}
 	
 	@Bean
 	public StoredCall insertUserOverload1() {
-		StoredCallImpl call = new StoredCallImpl();
-		call.setJdbcTemplate(jdbcTemplate);
-		call.setProcedureName("insertUser");
-		call.setParameters(new BigIntAsLongSqlInParameter("ID"));
-		return call;
+		return StoredCallBuilder
+				.builder(jdbcTemplate)
+				.withName("insertUser")
+				.addSqlParameters(new BigIntAsLongSqlInParameter("ID"))
+				.build();
 	}
 	
 	@Bean
 	public StoredCall insertUserOverload2() {
-		StoredCallImpl call = new StoredCallImpl();
-		call.setJdbcTemplate(jdbcTemplate);
-		call.setProcedureName("insertUser");
-		call.setParameters(
-				new BigIntAsLongSqlInParameter("ID"),
-				new TimestampAsDateTimeSqlInParameter("BIRTH_DATE")
-			);
-		return call;
+		return StoredCallBuilder
+				.builder(jdbcTemplate)
+				.withName("insertUser")
+				.addSqlParameters(
+						new BigIntAsLongSqlInParameter("ID"),
+						new TimestampAsDateTimeSqlInParameter("BIRTH_DATE")
+						)
+				.build();
 	}
 }
