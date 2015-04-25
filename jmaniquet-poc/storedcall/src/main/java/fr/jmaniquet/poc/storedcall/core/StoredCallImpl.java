@@ -82,7 +82,7 @@ public class StoredCallImpl implements StoredCall {
 		return parameters;
 	}
 
-	public void setParameters(SqlParameter[] parameters) {
+	public void setParameters(SqlParameter ... parameters) {
 		this.parameters = parameters;
 	}
 
