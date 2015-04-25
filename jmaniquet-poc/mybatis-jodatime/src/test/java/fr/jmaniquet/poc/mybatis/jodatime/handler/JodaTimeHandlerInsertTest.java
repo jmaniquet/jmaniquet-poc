@@ -8,14 +8,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import fr.jmaniquet.poc.mybatis.jodatime.context.MybatisJodatimeContext;
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/mybatis-jodatime-test-context.xml"})
+@ContextConfiguration(classes = {
+		ToolsEmbaddedDataBaseContext.class,
+		MybatisJodatimeContext.class}
+)
 public class JodaTimeHandlerInsertTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	@Autowired
