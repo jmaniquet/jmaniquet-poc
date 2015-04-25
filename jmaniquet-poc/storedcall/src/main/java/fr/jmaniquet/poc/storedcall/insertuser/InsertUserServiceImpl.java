@@ -11,7 +11,7 @@ import fr.jmaniquet.poc.storedcall.core.StoredCall;
 class InsertUserServiceImpl implements InsertUserService {
 	
 	@Autowired
-	@Qualifier("inserUserOverload1")
+	@Qualifier("insertUserOverload1")
 	private StoredCall inserUserOverload1;
 	
 	@Autowired

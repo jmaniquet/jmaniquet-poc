@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.GenericMapper;
-import fr.jmaniquet.poc.tools.context.ToolsContext;
+import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
 
 @Configuration
-@Import(ToolsContext.class)
+@Import(ToolsCoreContext.class)
 @MapperScan(
 		basePackages = {"fr.jmaniquet.poc.mybatis.jodatime.mapper"},
 		markerInterface=GenericMapper.class,

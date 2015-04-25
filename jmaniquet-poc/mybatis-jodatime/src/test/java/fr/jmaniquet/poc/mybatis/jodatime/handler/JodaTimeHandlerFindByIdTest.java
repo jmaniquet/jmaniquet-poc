@@ -1,12 +1,12 @@
 package fr.jmaniquet.poc.mybatis.jodatime.handler;
 
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_BIRTHDATE;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER1_NAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_GIVENNAME;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_ID;
-import static fr.jmaniquet.poc.tools.constants.TestDataConstants.USER2_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_BIRTHDATE;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER1_NAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_GIVENNAME;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_ID;
+import static fr.jmaniquet.poc.tools.core.constants.TestDataConstants.USER2_NAME;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,13 +20,18 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
+import fr.jmaniquet.poc.mybatis.jodatime.context.MybatisJodatimeContext;
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
-import fr.jmaniquet.poc.tools.user.User;
-import fr.jmaniquet.poc.tools.user.UserBuilder;
-import fr.jmaniquet.poc.tools.user.UserUtils;
+import fr.jmaniquet.poc.tools.core.user.User;
+import fr.jmaniquet.poc.tools.core.user.UserBuilder;
+import fr.jmaniquet.poc.tools.core.user.UserUtils;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/mybatis-jodatime-test-context.xml"})
+@ContextConfiguration(classes = {
+		ToolsEmbaddedDataBaseContext.class,
+		MybatisJodatimeContext.class}
+)
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)
 @DbUnitConfiguration(databaseConnection = "dataSource")
 @DatabaseSetup("classpath:/selectuser-dataset.xml")
