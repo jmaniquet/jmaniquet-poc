@@ -18,7 +18,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.mybatis.jodatime.context.MybatisJodatimeContext;
+import fr.jmaniquet.poc.mybatis.jodatime.MybatisJodatimeContext;
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;

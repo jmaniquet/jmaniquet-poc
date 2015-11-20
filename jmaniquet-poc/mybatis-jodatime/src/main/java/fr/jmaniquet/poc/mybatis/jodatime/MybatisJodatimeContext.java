@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.mybatis.jodatime.context;
+package fr.jmaniquet.poc.mybatis.jodatime;
 
 import javax.sql.DataSource;
 
@@ -20,7 +20,7 @@ import fr.jmaniquet.poc.tools.core.ToolsCoreContext;
 		basePackages = {"fr.jmaniquet.poc.mybatis.jodatime.mapper"},
 		markerInterface=GenericMapper.class,
 		sqlSessionFactoryRef="sqlSessionFactory")
-@ComponentScan("fr.jmaniquet.poc.mybatis.jodatime")
+@ComponentScan
 public class MybatisJodatimeContext {
 
 	@Autowired
