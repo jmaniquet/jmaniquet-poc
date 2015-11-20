@@ -21,7 +21,7 @@
 		
 		<jdk.version>1.7</jdk.version>
 
-		<jodatime.version>2.9.1</jodatime.version>
+		<joda-time.version>2.9.1</joda-time.version>
 		<dbunit.version>2.5.1</dbunit.version>
 		<spring-dbunit.version>1.2.1</spring-dbunit.version>
 	</properties>
@@ -35,12 +35,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>joda-time</groupId>
-				<artifactId>joda-time</artifactId>
-				<version>${jodatime.version}</version>
-			</dependency>
-			
 			<dependency>
 				<groupId>org.dbunit</groupId>
 				<artifactId>dbunit</artifactId>
