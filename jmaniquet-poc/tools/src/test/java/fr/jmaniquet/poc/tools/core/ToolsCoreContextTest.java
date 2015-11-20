@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.tools.core.context;
+package fr.jmaniquet.poc.tools.core;
 
 import javax.sql.DataSource;
 
@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreContext;
 import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)

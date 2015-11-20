@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.GenericMapper;
-import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreContext;
 
 @Configuration
 @Import(ToolsCoreContext.class)

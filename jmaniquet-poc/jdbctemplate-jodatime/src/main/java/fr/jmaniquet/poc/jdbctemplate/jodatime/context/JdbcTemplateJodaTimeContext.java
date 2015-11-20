@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import fr.jmaniquet.poc.jdbctemplate.jodatime.JodaJdbcTemplate;
-import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreContext;
 
 @Configuration
 @Import(ToolsCoreContext.class)

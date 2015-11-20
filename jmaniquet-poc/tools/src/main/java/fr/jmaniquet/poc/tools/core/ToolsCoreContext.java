@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.tools.core.context;
+package fr.jmaniquet.poc.tools.core;
 
 import javax.sql.DataSource;
 
@@ -13,7 +13,7 @@ import org.springframework.transaction.support.ResourceTransactionManager;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("fr.jmaniquet.poc.tools.core")
+@ComponentScan
 public class ToolsCoreContext {
 	
 	@Autowired
