@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.jdbctemplate.jodatime.context;
+package fr.jmaniquet.poc.jdbctemplate.jodatime;
 
 import javax.sql.DataSource;
 
@@ -8,12 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import fr.jmaniquet.poc.jdbctemplate.jodatime.JodaJdbcTemplate;
-import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
 
 @Configuration
-@Import(ToolsCoreContext.class)
-public class JdbcTemplateJodaTimeContext {
+@Import(ToolsCoreConfig.class)
+public class JdbcTemplateJodaTimeConfig {
 
 	@Autowired
 	private DataSource dataSource;

@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.mybatis.jodatime.context;
+package fr.jmaniquet.poc.mybatis.jodatime;
 
 import javax.sql.DataSource;
 
@@ -12,16 +12,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.GenericMapper;
-import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
 
 @Configuration
-@Import(ToolsCoreContext.class)
+@Import(ToolsCoreConfig.class)
 @MapperScan(
 		basePackages = {"fr.jmaniquet.poc.mybatis.jodatime.mapper"},
 		markerInterface=GenericMapper.class,
 		sqlSessionFactoryRef="sqlSessionFactory")
-@ComponentScan("fr.jmaniquet.poc.mybatis.jodatime")
-public class MybatisJodatimeContext {
+@ComponentScan
+public class MybatisJodatimeConfig {
 
 	@Autowired
 	private DataSource dataSource;
