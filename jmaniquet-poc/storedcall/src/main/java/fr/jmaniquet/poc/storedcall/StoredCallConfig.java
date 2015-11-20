@@ -16,13 +16,13 @@ import fr.jmaniquet.poc.storedcall.core.params.cursor.CursorParameter;
 import fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlInParameter;
 import fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlOutParameter;
 import fr.jmaniquet.poc.storedcall.core.params.varchar.VarcharAsStringSqlOutParameter;
-import fr.jmaniquet.poc.tools.core.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
 import fr.jmaniquet.poc.tools.core.user.User;
 
 @Configuration
-@Import(ToolsCoreContext.class)
+@Import(ToolsCoreConfig.class)
 @ComponentScan
-public class StoredCallContext {
+public class StoredCallConfig {
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

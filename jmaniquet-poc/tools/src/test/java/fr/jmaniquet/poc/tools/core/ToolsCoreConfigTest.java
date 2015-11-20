@@ -11,15 +11,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.tools.core.ToolsCoreContext;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseContext.class,
-		ToolsCoreContext.class}
+		ToolsEmbaddedDataBaseConfig.class,
+		ToolsCoreConfig.class}
 )
-public class ToolsCoreContextTest extends AbstractJUnit4SpringContextTests {
+public class ToolsCoreConfigTest extends AbstractJUnit4SpringContextTests {
 	
 	@Autowired
 	private DataSource dataSource;
@@ -28,7 +28,7 @@ public class ToolsCoreContextTest extends AbstractJUnit4SpringContextTests {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	private ToolsCoreContext toolsContext;
+	private ToolsCoreConfig toolsContext;
 	
 	@Test
 	public void testDataSourceNotNull() {

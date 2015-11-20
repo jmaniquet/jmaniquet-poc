@@ -14,7 +14,7 @@ import org.springframework.transaction.support.ResourceTransactionManager;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan
-public class ToolsCoreContext {
+public class ToolsCoreConfig {
 	
 	@Autowired
 	private DataSource dataSource;

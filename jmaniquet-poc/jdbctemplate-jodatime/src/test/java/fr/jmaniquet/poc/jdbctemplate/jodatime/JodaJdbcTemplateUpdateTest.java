@@ -23,12 +23,12 @@ import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseContext.class,
-		JdbcTemplateJodaTimeContext.class}
+		ToolsEmbaddedDataBaseConfig.class,
+		JdbcTemplateJodaTimeConfig.class}
 )
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)
 @DbUnitConfiguration(databaseConnection = "dataSource")

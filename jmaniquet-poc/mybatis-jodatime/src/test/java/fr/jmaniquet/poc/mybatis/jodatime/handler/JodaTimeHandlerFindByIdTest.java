@@ -20,17 +20,17 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.mybatis.jodatime.MybatisJodatimeContext;
+import fr.jmaniquet.poc.mybatis.jodatime.MybatisJodatimeConfig;
 import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseContext.class,
-		MybatisJodatimeContext.class}
+		ToolsEmbaddedDataBaseConfig.class,
+		MybatisJodatimeConfig.class}
 )
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)
 @DbUnitConfiguration(databaseConnection = "dataSource")
