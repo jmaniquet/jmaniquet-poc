@@ -24,11 +24,11 @@ import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbeddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseConfig.class,
+		ToolsEmbeddedDataBaseConfig.class,
 		ToolsCoreConfig.class}
 )
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)

@@ -29,14 +29,14 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
 import fr.jmaniquet.poc.storedcall.StoredCallConfig;
-import fr.jmaniquet.poc.storedcall.test.config.StoredCallEmbaddedDataBaseConfig;
+import fr.jmaniquet.poc.storedcall.test.config.StoredCallEmbeddedDataBaseConfig;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		StoredCallEmbaddedDataBaseConfig.class,
+		StoredCallEmbeddedDataBaseConfig.class,
 		StoredCallConfig.class}
 )
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)

@@ -23,11 +23,11 @@ import fr.jmaniquet.poc.mybatis.jodatime.mapper.UserMapper;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbeddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseConfig.class,
+		ToolsEmbeddedDataBaseConfig.class,
 		MybatisJodatimeConfig.class}
 )
 @TestExecutionListeners(listeners = DbUnitTestExecutionListener.class)

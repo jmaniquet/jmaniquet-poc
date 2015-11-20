@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.jmaniquet.poc.storedcall.StoredCallConfig;
-import fr.jmaniquet.poc.storedcall.test.config.StoredCallEmbaddedDataBaseConfig;
+import fr.jmaniquet.poc.storedcall.test.config.StoredCallEmbeddedDataBaseConfig;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
@@ -17,7 +17,7 @@ import fr.jmaniquet.poc.tools.core.user.UserUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		StoredCallEmbaddedDataBaseConfig.class,
+		StoredCallEmbeddedDataBaseConfig.class,
 		StoredCallConfig.class}
 )
 public class InsertUserServiceTest extends AbstractTransactionalJUnit4SpringContextTests {

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 @Configuration
-public class ToolsEmbaddedDataBaseConfig {
+public class ToolsEmbeddedDataBaseConfig {
 
 	@Bean
 	public DataSource dataSource() {

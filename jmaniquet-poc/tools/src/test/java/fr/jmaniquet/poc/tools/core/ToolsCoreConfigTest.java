@@ -12,11 +12,11 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbeddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseConfig.class,
+		ToolsEmbeddedDataBaseConfig.class,
 		ToolsCoreConfig.class}
 )
 public class ToolsCoreConfigTest extends AbstractJUnit4SpringContextTests {

@@ -10,11 +10,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseConfig;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbeddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseConfig.class,
+		ToolsEmbeddedDataBaseConfig.class,
 		JdbcTemplateJodaTimeConfig.class}
 )
 public class JodaJdbcTemplateTypeClassTest extends AbstractTransactionalJUnit4SpringContextTests {
