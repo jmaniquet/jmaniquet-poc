@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.storedcall.context.StoredCallContext;
+import fr.jmaniquet.poc.storedcall.StoredCallContext;
 import fr.jmaniquet.poc.storedcall.test.context.StoredCallEmbaddedDataBaseContext;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;

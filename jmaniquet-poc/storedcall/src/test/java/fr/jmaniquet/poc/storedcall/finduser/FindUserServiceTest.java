@@ -28,7 +28,7 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.storedcall.context.StoredCallContext;
+import fr.jmaniquet.poc.storedcall.StoredCallContext;
 import fr.jmaniquet.poc.storedcall.test.context.StoredCallEmbaddedDataBaseContext;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;

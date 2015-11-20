@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.storedcall.context;
+package fr.jmaniquet.poc.storedcall;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ import fr.jmaniquet.poc.tools.core.user.User;
 
 @Configuration
 @Import(ToolsCoreContext.class)
-@ComponentScan("fr.jmaniquet.poc.storedcall")
+@ComponentScan
 public class StoredCallContext {
 	
 	@Autowired
