@@ -17,7 +17,7 @@ import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
 @Configuration
 @Import(ToolsCoreConfig.class)
 @MapperScan(
-		basePackages = {"fr.jmaniquet.poc.mybatis.jodatime.mapper"},
+		basePackageClasses = ScannableMapperPackage.class,
 		markerInterface=GenericMapper.class,
 		sqlSessionFactoryRef="sqlSessionFactory")
 @ComponentScan
