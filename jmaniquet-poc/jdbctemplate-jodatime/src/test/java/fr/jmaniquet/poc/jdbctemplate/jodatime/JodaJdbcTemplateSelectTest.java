@@ -31,7 +31,6 @@ import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
 
-import fr.jmaniquet.poc.jdbctemplate.jodatime.context.JdbcTemplateJodaTimeContext;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;

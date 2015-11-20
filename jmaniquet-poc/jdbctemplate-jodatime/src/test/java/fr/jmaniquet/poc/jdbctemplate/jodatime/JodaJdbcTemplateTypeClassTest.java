@@ -10,7 +10,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.jdbctemplate.jodatime.context.JdbcTemplateJodaTimeContext;
 import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
