@@ -1,4 +1,4 @@
-package fr.jmaniquet.poc.storedcall.context;
+package fr.jmaniquet.poc.storedcall;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,13 +16,13 @@ import fr.jmaniquet.poc.storedcall.core.params.cursor.CursorParameter;
 import fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlInParameter;
 import fr.jmaniquet.poc.storedcall.core.params.timestamp.TimestampAsDateTimeSqlOutParameter;
 import fr.jmaniquet.poc.storedcall.core.params.varchar.VarcharAsStringSqlOutParameter;
-import fr.jmaniquet.poc.tools.core.context.ToolsCoreContext;
+import fr.jmaniquet.poc.tools.core.ToolsCoreConfig;
 import fr.jmaniquet.poc.tools.core.user.User;
 
 @Configuration
-@Import(ToolsCoreContext.class)
-@ComponentScan("fr.jmaniquet.poc.storedcall")
-public class StoredCallContext {
+@Import(ToolsCoreConfig.class)
+@ComponentScan
+public class StoredCallConfig {
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;

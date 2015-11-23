@@ -11,17 +11,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import fr.jmaniquet.poc.jdbctemplate.jodatime.context.JdbcTemplateJodaTimeContext;
 import fr.jmaniquet.poc.tools.core.random.RandomUtils;
 import fr.jmaniquet.poc.tools.core.user.User;
 import fr.jmaniquet.poc.tools.core.user.UserBuilder;
 import fr.jmaniquet.poc.tools.core.user.UserUtils;
-import fr.jmaniquet.poc.tools.test.context.ToolsEmbaddedDataBaseContext;
+import fr.jmaniquet.poc.tools.test.context.ToolsEmbeddedDataBaseConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-		ToolsEmbaddedDataBaseContext.class,
-		JdbcTemplateJodaTimeContext.class}
+		ToolsEmbeddedDataBaseConfig.class,
+		JdbcTemplateJodaTimeConfig.class}
 )
 public class JodaJdbcTemplateInsertTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
